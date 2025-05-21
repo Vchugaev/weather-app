@@ -1,0 +1,48 @@
+@use "../../assets/styles/media" as media;
+
+.searchContainer {
+    display: flex;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    @include media.respond-md {
+        flex-direction: column;
+    }
+}
+
+.searchInput {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px 0 0 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: white;
+    border-radius: 50px;
+    padding: 5px 20px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.searchButton {
+    padding: 0 40px;
+    background-color: #17cb80;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #0d8553;
+    }
+
+    img {
+        width: 12px;
+    }
+    @include media.respond-md {
+        height: 40px;
+    }
+}

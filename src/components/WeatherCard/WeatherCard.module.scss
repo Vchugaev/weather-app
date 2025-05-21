@@ -1,0 +1,107 @@
+@use "../../assets/styles/media" as media;
+@use "../cards" as cards;
+
+.weatherCard {
+    @include cards.card-base;
+    
+    width: 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.01);
+    }
+    &:active {
+        transform: scale(0.99);
+    }
+    transition: 200ms transform;
+    @include media.respond-sm {
+        width: 240px;
+        min-width: 240px;
+    }
+}
+
+.actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    button {
+        position: relative;
+        z-index: 10;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.favoriteButton,
+.deleteButton {
+    img {
+        width: 20px;
+        height: 20px;
+        filter: brightness(0) invert(1);
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+
+    .header__info {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.icon {
+    width: 120px;
+}
+
+.location {
+    font-size: 32px;
+    overflow-wrap: break-word;
+
+    @include media.respond-sm {
+        font-size: 24px;
+    }
+}
+
+.date {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.temp {
+    font-size: 108px;
+    margin: 10px 0;
+    display: flex;
+    gap: 2px;
+
+    span {
+        font-size: 24px;
+        margin: auto;
+    }
+}
+
+.description {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}

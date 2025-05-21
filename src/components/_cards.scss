@@ -1,0 +1,7 @@
+@mixin card-base {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}

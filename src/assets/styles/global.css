@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+  background: linear-gradient(to bottom right, #337ccc, #9d69b7);
+  min-height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald';
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-weight: 300;
+}

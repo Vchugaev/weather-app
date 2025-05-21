@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+@mixin respond-sm {
+    @media (max-width: $breakpoint-sm) {
+        @content;
+    }
+}
+
+@mixin respond-md {
+    @media (max-width: $breakpoint-md) {
+        @content;
+    }
+}
+
+@mixin respond-lg {
+    @media (max-width: $breakpoint-lg) {
+        @content;
+    }
+}

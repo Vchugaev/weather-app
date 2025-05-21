@@ -1,0 +1,13 @@
+@use "../cards" as cards;
+
+.main {
+    @include cards.card-base;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    width: 248px;
+    padding: 10px 0;
+}
+.icon {
+    width: 110px;
+}
