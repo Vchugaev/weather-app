@@ -1,54 +1,77 @@
-# React + TypeScript + Vite
+# Weather App - Readme
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание проекта
 
-Currently, two official plugins are available:
+SPA приложение для просмотра текущей погоды и прогноза на несколько дней в выбранных городах. Приложение использует OpenWeatherMap API для получения данных о погоде.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функционал
 
-## Expanding the ESLint configuration
+- Поиск и добавление городов для отслеживания погоды
+- Просмотр краткой информации о погоде в выбранных городах
+- Детальный просмотр погоды с прогнозом на несколько дней
+- Добавление городов в избранное (сохранение в localStorage)
+- Удаление городов из списка
+- Адаптивный дизайн для мобильных устройств
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Технологии
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React.js (с использованием хуков)
+- React Router
+- SCSS Modules
+- Redux Toolkit (для управления состоянием)
+- OpenWeatherMap API
+
+## Установка и запуск
+
+1. Склонируйте репозиторий:
+```bash
+git clone https://github.com/Vchugaev/weather-app.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Перейдите в директорию проекта:
+```bash
+cd weather-app
 ```
+
+3. Установите зависимости:
+```bash
+npm install
+```
+
+4. Создайте файл `.env` если его нет в корне проекта и добавьте ваш API ключ от OpenWeatherMap и Unsplash API:
+```env
+VITE_OPENWEATHER_API_KEY=your_api_key_here
+VITE_UNSPLASH_API_KEY=your_api_key_here
+```
+
+5. Запустите приложение:
+```bash
+npm run dev
+```
+
+Приложение будет доступно по адресу [http://localhost:5173](http://localhost:5173)
+
+## Структура проекта
+
+```
+src/
+├── assets/          # Статические файлы (иконки, изображения)
+├── components/      # Компоненты приложения
+├── pages/           # Страницы приложения
+├── styles/          # Глобальные стили
+├── utils/           # Вспомогательные функции
+├── App.jsx          # Главный компонент приложения
+└── main.jsx         # Точка входа
+```
+
+## Время выполнения
+
+На выполнение задания потребовалось примерно **3 часа** (включая изучение документации OpenWeatherMap API и тестирование).
+
+## Дополнительные возможности для развития проекта
+
+1. Добавление анимаций при переходах между страницами
+2. Реализация переключения между градусами Цельсия и Фаренгейта
+3. Добавление графиков изменения температуры
+4. Реализация PWA версии приложения
+5. Добавление поддержки нескольких языков
