@@ -16,7 +16,7 @@ export default function CitySearch() {
     if (!city.trim()) return;
     try {
       const res: WeatherData = await trigger({
-        locationName: city,
+        locationName: city.trim(),
         units: "metric",
         lang: "ru",
       }).unwrap();
