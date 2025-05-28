@@ -22,6 +22,8 @@ export default function WeatherCard({ data }: props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Лучше выносить чистые функции за компонент или в отдельный файл, так немного улучшается оптимизация
+  // и уменьшается загруженность компонента
   function formatWeatherDate(timestamp: number): string {
     const date = new Date(timestamp * 1000); // Умножаем на 1000, т.к. в JS timestamp в миллисекундах
 
@@ -32,6 +34,7 @@ export default function WeatherCard({ data }: props) {
     return `${day}/${month}/${year}`;
   }
 
+  // поскольку работа идет с ЛС, то эту функцию тоже можно вынести
   const toggleFavorite = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (isFav) {

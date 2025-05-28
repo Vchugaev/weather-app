@@ -8,6 +8,11 @@ import { useLazyGetCurrentWeatherQuery } from "./store/weatherApi";
 import { addToHistory } from "./store/weatherSlice";
 import CityDetailPage from "./pages/CityDetailPage/CityDetailPage";
 
+// в импортах полная каша, лучше под это настроить линтер
+// также не хватает алисов, чтобы вместо ../../components/some-component
+// или ./pages/page1/page
+// было @/assets или @/pages и т.п. - таким образом относительные импорты во многом уйдут, а абсолютные будут унифицированы и удобны
+
 const App = () => {
   const dispatch = useDispatch();
   const [fetchWeather] = useLazyGetCurrentWeatherQuery();
@@ -25,6 +30,9 @@ const App = () => {
 
           dispatch(addToHistory(result));
         } catch (error) {
+          // если запрос не проходит или в процессе вылетает ошибка, лучше показывать юзеру, что есть проблемы с этим -
+          // для этого подойдет например тост или какой то хотя бы фидбек строкой на странице типа
+          // “Не удалось получить информацию по городу *город*”
           console.error(`Failed to load ${cityName}:`, error);
         }
       }
@@ -34,6 +42,11 @@ const App = () => {
   }, [dispatch, fetchWeather]);
 
   return (
+    // Семантическая ошибка. Как правило, тег main используется в самой странице для отображения контента.
+    // Т.е. у нас есть body, в котором на верхнем уровне есть header (шапка), aside (навбар если есть),
+    // main (основной, меняющийся контент, уникальный для каждой страницы) и footer (если есть).
+    // Так что тег main чисто по семантическим соображениям лучше помещать внутрь страницы или обертки для страниц
+    // (если нужны подробности, то можно погуглить про семантику этих тегов)
     <main>
       <Router>
         <Routes>

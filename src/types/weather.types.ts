@@ -43,6 +43,8 @@ interface WeatherData {
   name: string;
   cod: number;
 }
+// Слишком перегруженный тип, желательно разбивать на подтипы вложенные объекты, типа
+// CoordData = { lon: number; lat: number } и прочее
 
 interface WeatherDataArray extends Array<WeatherData> {}
 
