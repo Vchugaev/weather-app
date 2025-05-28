@@ -10,7 +10,7 @@ import WeatherHour from "../../components/WeatherHour/WeatherHour";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import getCityImage from "../../utils/getImage";
-
+// Компонент в целом немного перегружен, лучше разбить его на микро компонентики, сплошая верстка трудно читается
 export default function CityDetailPage() {
   const { cityId } = useParams<{ cityId: string }>();
   const [trigger] = useLazyGetCurrentWeatherQuery();

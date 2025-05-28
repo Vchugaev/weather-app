@@ -42,6 +42,7 @@ export const weatherApi = createApi({
 
         const desiredHours = [9, 15, 18, 21];
 
+        // можно упростить: сразу return response.list.filter()
         const list = response.list.filter((entry) => {
           const isTomorrow = entry.dt_txt.startsWith(formattedDate);
           const utcHour = new Date(entry.dt * 1000).getUTCHours();
@@ -54,6 +55,7 @@ export const weatherApi = createApi({
 });
 
 export const {
+  // экспортируется наружу (57 и 60 строки), но нигде не используется
   useGetCurrentWeatherQuery,
   useLazyGetCurrentWeatherQuery,
   useGetHourlyForecastQuery,
